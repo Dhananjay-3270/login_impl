@@ -9,7 +9,7 @@ const [data,setData] = useState({username:"",password:""})
 const[islogin,setislogin] = useState(false);
 const[isinvalid,setisinvalid] = useState(false);
 const handlesubmit = ()=>{
- if(data.username.length>0 && data.password.length>0)
+ if((data.username.length>0) && (data.password.length>0))
 
   {
 if((data.username === creds.username) && (data.password === creds.password))
