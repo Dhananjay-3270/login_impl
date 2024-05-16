@@ -4,15 +4,15 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-const creds ={Username:"user",Password:"password"}
-const [data,setData] = useState({Username:"",Password:""})
+const creds ={username:"user",password:"password"}
+const [data,setData] = useState({username:"",password:""})
 const[islogin,setislogin] = useState(false);
 const[isinvalid,setisinvalid] = useState(false);
 const handlesubmit = ()=>{
- if(data.Username.length>0 && data.Password.length>0)
+ if(data.username.length>0 && data.password.length>0)
 
   {
-if(data.Username ===creds.Username && data.Password === creds.Password)
+if((data.username === creds.username) && (data.password === creds.password))
   {
     setislogin(true);
   }
@@ -25,9 +25,9 @@ if(data.Username ===creds.Username && data.Password === creds.Password)
   
 }
 const handlechange = (event)=>{
-const[name,value] = event.target ;
+const{name,value} = event.target ;
 setData((prevdata)=>({...prevdata ,[name]:value}))
-  
+  console.log(data);
 }
   return (
     <>
@@ -39,7 +39,7 @@ setData((prevdata)=>({...prevdata ,[name]:value}))
     <input type='text' onChange={handlechange} name='username' id='username' placeholder='username' required />
     <br/>
     <label>Password:</label>
-    <input type='text'  name='password' id='username' placeholder='password' required/>
+    <input type='text'  onChange={handlechange} name='password' id='username' placeholder='password' required/>
   <br/>
 <button onClick={handlesubmit}>Submit</button>
 </>
