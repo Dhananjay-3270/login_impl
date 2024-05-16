@@ -8,7 +8,8 @@ const creds ={username:"user",password:"password"}
 const [data,setData] = useState({username:"",password:""})
 const[islogin,setislogin] = useState(false);
 const[isinvalid,setisinvalid] = useState(false);
-const handlesubmit = ()=>{
+const handlesubmit = (event)=>{
+  event.preventDefault();
  if((data.username.length>0) && (data.password.length>0))
 
   {
@@ -33,6 +34,7 @@ setData((prevdata)=>({...prevdata ,[name]:value}))
     <>
     <h1>Login Page</h1>
     <h4>{isinvalid?"Invalid username or password":""}</h4>
+    <form>
     <div>
      { islogin ?("Welcome, user!"):<>
     <label  >Username:</label>
@@ -45,6 +47,7 @@ setData((prevdata)=>({...prevdata ,[name]:value}))
 </>
 }
 </div>
+</form>
     </>
   )
 }
